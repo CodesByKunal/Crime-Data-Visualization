@@ -4,18 +4,9 @@ The Crime Data Visualization App is a web application designed to provide users 
 
 # Features
 
-## For Police Officials
-
 - Heatmap Visualization: Interactive heatmap displaying exact locations of crime incidents.
 - Detailed Data Analysis: Various charts and graphs depict crime data trends and patterns.
 - Advanced Filters: Customize the displayed data based on criteria such as time, location, crime type and more.
-
-## For Citizens
-
-- Generalized Heatmap: View a simplified heatmap that indicates general areas of crime without revealing specific locations.
-- Real-Time Crime Alerts: Receive alerts when entering high-crime areas to enhance personal safety.
-- Safety Recommendations: Access do's and don'ts tailored to specific areas to improve situational awareness.
-- Emergency Contact: Quickly call helpline numbers directly through the app for immediate assistance.
 
 ## Technologies Used
 
