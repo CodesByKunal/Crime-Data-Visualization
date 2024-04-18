@@ -34,6 +34,6 @@ The Crime Data Visualization App is a web application designed to provide users 
 > Database:
 > `MongoDB` `Redis`
 
-## Architecture Design
+## High Level Work Flow for App
 
 ![Architecture Design Image](./Statics/Architecture%20Design.jpg)
