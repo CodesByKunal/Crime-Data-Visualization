@@ -36,4 +36,4 @@ The Crime Data Visualization App is a web application designed to provide users 
 
 ## Architecture Design
 
-[!Architecture Design Image](./Statics/Architecture%20Design.png)
+![Architecture Design Image](./Statics/Architecture%20Design.png)
