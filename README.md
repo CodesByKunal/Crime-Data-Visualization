@@ -2,9 +2,6 @@
 
 The Crime Data Visualization App is a web application designed to provide users with interactive visualizations of crime data. It utilizes heatmaps on maps along with charts and graphs to present insights into crime trends in a given area.
 
-
-Below is a concise and organized description of the features for a README file, suitable for explaining the capabilities of a crime data visualization application. This version separates features available to police officials and regular citizens, enhancing clarity and readability.
-
 # Features
 
 ## For Police Officials
