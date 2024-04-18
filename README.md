@@ -34,55 +34,6 @@ The Crime Data Visualization App is a web application designed to provide users 
 > Database:
 > `MongoDB` `Redis`
 
-### Project Setup Guide For Police Officals
-> [!IMPORTANT]
-> Set up [MongoDB](https://www.mongodb.com/docs/manual/installation/) , [Redis](https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/) and [nodejs.org](https://nodejs.org/) on Machine.
+## Architecture Design
 
-#### 1. Set Up and Run the Backend Server
-
-The backend part of this project uses Express.js. Here’s how you can set it up and start the server:
-
-a. Open a new terminal or command prompt window. Navigate back to the main project directory `Crime-Data-Visualization` and then into the `Backend` folder:
-
-```bash
-cd path/to/Crime-Data-Visualization
-cd Backend
-```
-
-b. Install the necessary packages:
-
-```bash
-npm install
-```
-
-c. Start the server:
-
-```bash
-npm start
-```
-
-This will start the Express server,  on `localhost:3030` or another port specified in your server configuration.
-
-#### 2. Set Up and Run the Frontend Server
-
-The frontend part of this project uses Next.js. Here’s how you can set it up and start the development server:
-
-a. Open a new terminal or command prompt window. Navigate back to the main project directory `Crime-Data-Visualization` and then into the `Frontend` folder:
-
-```bash
-cd path/to/Crime-Data-Visualization
-cd Frontend
-```
-b. Install the necessary packages:
-
-```bash
-npm install
-```
-
-c. Start the development server:
-
-```bash
-npm run dev
-```
-
-This command starts the Next.js development server, typically available at `http://localhost:3000`.
+[!Architecture Design Image](./Statics/Architecture%20Design.png)
