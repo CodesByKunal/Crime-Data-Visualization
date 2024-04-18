@@ -1,0 +1,29 @@
+{
+  "name": "cdv-backend",
+  "version": "1.0.0",
+  "description": "Backend for Crime Data Visualization Web App",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node main.js",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodesByKunal/Crime-Data-Visualization.git"
+  },
+  "keywords": [
+    "visualization",
+    "crime",
+    "heatmap"
+  ],
+  "author": "CodesByKunal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodesByKunal/Crime-Data-Visualization/issues"
+  },
+  "homepage": "https://github.com/CodesByKunal/Crime-Data-Visualization#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
