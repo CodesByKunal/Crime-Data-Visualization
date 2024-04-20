@@ -1,14 +1,12 @@
-import express from "express";
-import cookieParser from 'cookie-parser';
-import userRouter from './Routes/User.js'
+import express from 'express';
 
-const PORT = '80'
+const PORT = 80;
 const app = express();
 
 app.listen(PORT, () => {
-    console.log('Server is Listening....')
-})
+    console.log(`Server is Listening on http://localhost:${PORT}`)
+});
 
-app.use(cookieParser("bitandbyte"))
-
-app.use('/', userRouter);
+app.get('/health', (req, res) => {
+    res.send('Server Health OK');
+});
