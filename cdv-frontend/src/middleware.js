@@ -1,10 +1,10 @@
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
-import verifyToken from "./helpers/verifyToken";
+import verifyToken from "./helper/verifyToken";
 
 export async function middleware(request) {
   try {
-    
+
     const cookie = cookies().get("access_token");
     const path = request.nextUrl.pathname;
     const isPublic = path === "/signup" || path === "/login";
