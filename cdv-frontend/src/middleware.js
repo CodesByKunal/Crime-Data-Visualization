@@ -4,7 +4,6 @@ import verifyToken from "./helper/verifyToken";
 
 export async function middleware(request) {
   try {
-
     const cookie = cookies().get("access_token");
     const path = request.nextUrl.pathname;
     const isPublic = path === "/signup" || path === "/login";
@@ -16,13 +15,12 @@ export async function middleware(request) {
 
     // -> If Cookies and Public Routes
     if (isPublic && cookie) {
-
       // | Verify Cookie from server
-      const { token_valid, userid } = await verifyToken(cookie);
+      const { token_valid, username } = await verifyToken(cookie);
 
       // | If Cookie is valid and userid is present in response
-      if (token_valid && userid) {
-        return NextResponse.redirect(new URL(`/user/${userid}`, request.url));
+      if (token_valid && username) {
+        return NextResponse.redirect(new URL(`/user/${username}`, request.url));
       }
 
       // | Forward to Public route if above condition false
@@ -31,32 +29,40 @@ export async function middleware(request) {
 
     // -> If Private Routes and No-Cookies
     if (!isPublic && !cookie) {
-
       return NextResponse.redirect(new URL("/login", request.url));
-
     }
 
     // -> If Private Routes and Cookies
     if (!isPublic && cookie) {
-
       // | Verify Cookie from server
-      const { token_valid, userid } = await verifyToken(cookie);
+      const { token_valid, username } = await verifyToken(cookie);
+
+      // | If Path is /user/:id
+      if (request.nextUrl.pathname.startsWith("/user")) {
+        // | Get User id from url parameters
+        const urlUserid = request.nextUrl.pathname.split("/")[2];
+
+        if (token_valid && username && username === urlUserid) {
+          return NextResponse.next();
+        } else {
+          return NextResponse.redirect(
+            new URL(`/user/${username}`, request.url)
+          );
+        }
+      }
 
       // | If Cookie is valid and userid is present in response
-      if (token_valid && userid) {
+      if (token_valid && username) {
         return NextResponse.next();
       }
       // | If Cookie is invalid or userid not present then redirect to ('/login')
       return NextResponse.redirect(new URL("/login", request.url));
-
     }
   } catch (error) {
-
     console.error(error);
-
   }
 }
 
 export const config = {
-  matcher: ["/login", "/signup", "/user/:id*"],
+  matcher: ["/login", "/signup", "/records"],
 };

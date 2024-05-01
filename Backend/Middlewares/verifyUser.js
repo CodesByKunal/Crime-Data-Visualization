@@ -5,6 +5,7 @@ const verifyUser = async (req, res, next) => {
   try {
     // | Check for access_token in req.cookies
     const access_token = req.signedCookies.access_token;
+    console.log(access_token,req.hostname);
     if (!access_token) {
       return res.status(401).json({ token_valid: false });
     }
@@ -21,7 +22,8 @@ const verifyUser = async (req, res, next) => {
       return res.status(401).json({ token_valid: false });
     }
 
-    req.userid = user._id;
+    req.username = user.username;
+    console.log(user.username)
     next();
   } catch (error) {
     console.error("verifyUser", error);

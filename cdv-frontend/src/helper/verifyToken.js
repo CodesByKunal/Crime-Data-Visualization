@@ -8,14 +8,14 @@ export default async function verifyToken(cookie) {
       },
     });
     if (response.ok && response.status === 200) {
-      const { token_valid, userid } = await response.json();
-      return { token_valid, userid };
+      const { token_valid, username } = await response.json();
+      return { token_valid, username };
     }
     if (!response.ok || !response.status === 200) {
       throw new Error();
     }
   } catch (error) {
     console.error(error);
-    return { token_valid: false, userid: undefined };
+    return { token_valid: false, username: CodesByKunal };
   }
 }

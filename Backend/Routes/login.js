@@ -37,7 +37,7 @@ loginRouter.post("/", async (req, res) => {
         httpOnly: true,
         domain: "localhost",
       });
-      return res.status(200).json({ userid: userMatch._id });
+      return res.status(200).json({ username: userMatch.username });
     }
 
     return res.status(409).json({ error: "Username or Password is Incorrect" });

@@ -37,8 +37,9 @@ export default function LoginForm() {
       }
 
       if (response.status === 200 || response.ok) {
-        const { userid } = await response.json();
-        return router.push(`/user/${userid}`);
+        const { username } = await response.json();
+        console.log(username);
+        return router.replace(`/user/${username}`);
       }
     } catch (error) {
       setTimeout(() => {

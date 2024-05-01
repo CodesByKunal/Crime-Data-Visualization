@@ -33,6 +33,6 @@ app.use("/signup", signupRouter);
 app.use("/login", loginRouter);
 
 app.get("/verify", verifyUser, (req, res) => {
-  const { userid } = req;
-  res.status(200).json({ token_valid: true, userid: userid });
+  const { username } = req;
+  res.status(200).json({ token_valid: true, username: username });
 });
