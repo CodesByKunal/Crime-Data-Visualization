@@ -25,7 +25,7 @@ export default function LoginForm() {
         method: "POST",
         credentials: "include",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Typ`e": "application/json",
         },
         body: `${JSON.stringify({ username: username, password: password })}`,
       });
@@ -37,9 +37,7 @@ export default function LoginForm() {
       }
 
       if (response.status === 200 || response.ok) {
-        const { username } = await response.json();
-        console.log(username);
-        return router.replace(`/user/${username}`);
+        return router.replace(`/dashboard/profile`);
       }
     } catch (error) {
       setTimeout(() => {

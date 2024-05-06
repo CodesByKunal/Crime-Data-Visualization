@@ -12,7 +12,7 @@ loginRouter.post("/", async (req, res) => {
     if (!username || !password) {
       return res
         .status(400)
-        .json({ error: "Please provide both username and password" });
+        .json({ error: "Please np both username and password" });
     }
 
     // | Find username in db

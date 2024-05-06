@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
-import verifyToken from "./helper/verifyToken";
+import verifyToken from "./utils/verifyToken";
 
 export async function middleware(request) {
   try {
@@ -64,5 +64,5 @@ export async function middleware(request) {
 }
 
 export const config = {
-  matcher: ["/login", "/signup", "/user/:id*", "/records"],
+  matcher: ["/login", "/signup"],
 };
