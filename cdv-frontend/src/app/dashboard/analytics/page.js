@@ -3,7 +3,15 @@ import Linechart from "@/Components/Charts/LineChart.js";
 import Piechart from "@/Components/Charts/PieChart";
 import Radarchart from "@/Components/Charts/RadarChart";
 import Barchart from "@/Components/Charts/BarChart";
-export default function Chart() {
+import fetchRecord from "@/utils/fetchRecords";
+
+export default async function Chart(request) {
+  try {
+    const records = await fetchRecord();
+    console.log(records);
+  } catch (error) {
+    console.error("Failed to fetch records:", error.message);
+  }
   
   const data = [
     {

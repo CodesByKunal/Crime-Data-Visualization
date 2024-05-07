@@ -9,6 +9,7 @@ loginRouter.post("/", async (req, res) => {
   try {
     // | Check for username and password in req body
     const { username, password } = req.body;
+    console.log(username, password);
     if (!username || !password) {
       return res
         .status(400)
@@ -27,17 +28,20 @@ loginRouter.post("/", async (req, res) => {
     const passwordMatch = await bcrypt.compare(password, userMatch.password);
     if (passwordMatch) {
       // | Generate jwt token and set to cookies
-      let access_token = jwt.sign(
+      let access_token = await jwt.sign(
         { username: userMatch.username, _id: userMatch._id },
         "shhhhh"
       );
-      res.cookie("access_token", access_token, {
-        signed: true,
-        secure: true,
-        httpOnly: true,
-        domain: "localhost",
-      });
-      return res.status(200).json({ username: userMatch.username });
+      // res.cookie("access_token", access_token, {
+      //   signed: true,
+      //   secure: true,
+      //   httpOnly: true,
+      //   sameSite: "None",
+      //   domain: "localhost",
+      // });
+      return res
+        .status(200)
+        .json({ username: userMatch.username, access_token: access_token });
     }
 
     return res.status(409).json({ error: "Username or Password is Incorrect" });

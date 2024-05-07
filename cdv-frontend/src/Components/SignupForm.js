@@ -1,5 +1,11 @@
 import Link from "next/link";
 export default function SignupForm() {
+  const sendData = async (e) => {
+    "use server";
+
+    console.log(e);
+  };
+
   return (
     <>
       <div className="dark h-svh flex flex-col items-center justify-center px-6 py-8 mx-auto   dark:bg-gray-900 w-screen bg-gray-100 sm:h-screen">
@@ -8,7 +14,7 @@ export default function SignupForm() {
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               Create your account
             </h1>
-            <form className="space-y-4 md:space-y-6" action="#">
+            <form action={sendData} className="space-y-4 md:space-y-6">
               <div>
                 <label
                   htmlFor="username"

@@ -36,3 +36,8 @@ app.get("/verify", verifyUser, (req, res) => {
   const { username } = req;
   res.status(200).json({ token_valid: true, username: username });
 });
+
+app.post("/test", (req, res) => {
+  console.log("Signed Cookie : ", req.signedCookies);
+  res.status(200).json({ records: "File" });
+});
