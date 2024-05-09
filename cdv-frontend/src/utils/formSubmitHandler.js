@@ -1,3 +1,4 @@
+"use client";
 import userLogin from "./userLogin";
 
 const formSubmitHandler = async (formData) => {
@@ -8,10 +9,11 @@ const formSubmitHandler = async (formData) => {
 
   if (response?.error) {
     console.error("Error in user login :", response);
-    return null;
+    window.alert(response.error);
+    return 0;
   }
 
-  window.alert(response);
+  window.alert(`Username : ${response}`);
 };
 
 export default formSubmitHandler;

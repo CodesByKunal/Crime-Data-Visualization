@@ -1,14 +1,9 @@
-"use client"
-import {
-  LineChart,
-  CartesianGrid,
-  XAxis,
-  Tooltip,
-  YAxis,
-  Legend,
-  Line,
-} from "recharts";
-export default function Linechart({ records, height, width }) {
+"use client";
+import { LineChart, CartesianGrid, XAxis, Tooltip, YAxis, Legend, Line, } from "recharts";
+
+export default function Linechart({ records,height, width }) {
+
+  console.log(records)
   return (
     <>
       <LineChart
@@ -23,14 +18,14 @@ export default function Linechart({ records, height, width }) {
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
+        <XAxis dataKey="year" />
         <YAxis />
         <Tooltip />
         <Legend />
         <Line
           name="Case Count"
           type="monotone"
-          dataKey="Cases"
+          dataKey="case"
           stroke="#8884d8"
           strokeWidth={3}
           activeDot={{ r: 8 }}

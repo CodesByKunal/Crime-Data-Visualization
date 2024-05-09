@@ -24,11 +24,11 @@ export default function Barchart({ records, height, width }) {
         }}
       >
         <CartesianGrid strokeDasharray="1 1" />
-        <XAxis dataKey="name" />
+        <XAxis dataKey="year" />
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar name="Case Count" dataKey="Cases" fill="#8884d8" />
+        <Bar name="Case Count" dataKey="case" fill="#8884d8" />
       </BarChart>
     </>
   );

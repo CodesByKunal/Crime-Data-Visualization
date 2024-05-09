@@ -1,25 +1,29 @@
+"use server";
 import { cookies } from "next/headers";
 
 const fetchRecord = async () => {
   try {
-    const cookieStore = cookies();
-    const access_token = cookieStore.get("access_token");
+    const useCookie = cookies();
+    const access_token = useCookie.get("access_token");
 
-    const res = await fetch("http://localhost:8000/records", {
+    const response = await fetch("http://localhost:8000/records", {
       method: "GET",
       credentials: "include",
       headers: {
-        Cookie: `access_token=${access_token.value}`,
+        Cookie: `access_token=${access_token?.value}`,
       },
     });
-    if (!res.ok) {
-      throw new Error("Unable to fetch records");
+
+    if (!response.ok) {
+      const { error } = await response.json();
+      throw new Error(`err_msg :${error},status:${response.status}`);
     }
-    const records = await res.text();
+
+    const { records } = await response.json();
+
     return records;
   } catch (error) {
-    console.error("From Catch Block :", error.message);
-    throw error;
+    return { error: error.message };
   }
 };
 

@@ -4,26 +4,27 @@ import jwt from "jsonwebtoken";
 const verifyUser = async (req, res, next) => {
   try {
     // | Check for access_token in req.cookies
-    const access_token = req.signedCookies.access_token;
-    console.log(access_token,req.hostname);
+    const access_token = req.cookies.access_token;
+
     if (!access_token) {
-      return res.status(401).json({ token_valid: false });
+       res.status(401).json({ error: "Something went wrong" });
+       return;
     }
 
     // | Decode the access_token
     const decoded = await jwt.verify(access_token, "shhhhh");
     if (!decoded) {
-      return res.status(401).json({ token_valid: false });
+      return res.status(401).json({ error: "Something went wrong" });
     }
 
     // | Find user in db with id
     const user = await User.findById(decoded._id);
     if (!user.admin) {
-      return res.status(401).json({ token_valid: false });
+      return res.status(401).json({ error: "Something went wrong" });
     }
 
     req.username = user.username;
-    console.log(user.username)
+    console.log(user.username);
     next();
   } catch (error) {
     console.error("verifyUser", error);

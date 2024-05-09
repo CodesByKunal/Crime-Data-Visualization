@@ -1,7 +1,7 @@
-"use client";
 import Link from "next/link";
 import formSubmitHandler from "@/utils/formSubmitHandler";
-export default function LoginForm() {
+export default  function LoginForm() {
+ 
   return (
     <>
       <div className="h-svh flex flex-col items-center justify-center px-6 py-8 mx-auto sm:h-screen  dark:bg-gray-900 w-screen bg-gray-100">
