@@ -7,6 +7,7 @@ import Barchart from "@/Components/Charts/BarChart";
 import { useFetchData } from "@/hooks/useFetchData";
 
 export default function Chart() {
+  
   const { data, error } = useFetchData();
 
   const data_1 = [

@@ -1,5 +1,5 @@
 {
-  "name": "cdv-backend",
+  "name": "backend",
   "version": "1.0.0",
   "description": "Backend for Crime Data Visualization Web App",
   "main": "main.js",

@@ -156,7 +156,7 @@ export default function Navbar() {
           </Link>
           {/* Heatmap */}
           <Link
-            href={"./heatmap"}
+            href={"/dashboard/map"}
             className="p-2  hover:bg-yt-h rounded-md w-full flex flex-row justify-center items-center"
           >
             <div>

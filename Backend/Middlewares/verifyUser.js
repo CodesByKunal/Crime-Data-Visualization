@@ -7,8 +7,8 @@ const verifyUser = async (req, res, next) => {
     const access_token = req.cookies.access_token;
 
     if (!access_token) {
-       res.status(401).json({ error: "Something went wrong" });
-       return;
+      res.status(401).json({ error: "Something went wrong" });
+      return;
     }
 
     // | Decode the access_token
@@ -25,7 +25,9 @@ const verifyUser = async (req, res, next) => {
 
     req.username = user.username;
     console.log(user.username);
-    next();
+    setTimeout(() => {
+      next();
+    }, 100);
   } catch (error) {
     console.error("verifyUser", error);
     res.status(500).json({ error: "Something went wrong" });
