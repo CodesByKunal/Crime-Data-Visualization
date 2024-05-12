@@ -6,7 +6,7 @@ const fetchRecord = async () => {
     const useCookie = cookies();
     const access_token = useCookie.get("access_token");
 
-    const response = await fetch("http://localhost:8000/records", {
+    const responseData = await fetch("http://localhost:8000/records", {
       method: "GET",
       credentials: "include",
       headers: {
@@ -14,14 +14,15 @@ const fetchRecord = async () => {
       },
     });
 
-    if (!response.ok) {
-      const { error } = await response.json();
-      throw new Error(`err_msg :${error},status:${response.status}`);
+    if (!responseData.ok) {
+      const { error } = await responseData.json();
+
+      throw new Error(`err_msg :${error},status:${responseData.status}`);
     }
 
-    const { records } = await response.json();
+    const { recordsData } = await responseData.json();
 
-    return records;
+    return recordsData;
   } catch (error) {
     return { error: error.message };
   }

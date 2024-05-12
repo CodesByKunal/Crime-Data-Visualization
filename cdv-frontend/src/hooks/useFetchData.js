@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import fetchRecord from "@/utils/fetchRecords";
 
 export function useFetchData() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({});
   const [error, setError] = useState("");
 
   useEffect(() => {

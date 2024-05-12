@@ -7,31 +7,8 @@ import Barchart from "@/Components/Charts/BarChart";
 import { useFetchData } from "@/hooks/useFetchData";
 
 export default function Chart() {
-  
   const { data, error } = useFetchData();
 
-  const data_1 = [
-    {
-      policeStation: "Annapoorneshwari Nagar PS",
-      Case: 102,
-    },
-    {
-      policeStation: "Adugodi Traffic PS",
-      Case: 116,
-    },
-    {
-      policeStation: "Airport PS",
-      Case: 201,
-    },
-    {
-      policeStation: "Airport Traffic PS",
-      Case: 137,
-    },
-    {
-      policeStation: "Ashoknagar PS",
-      Case: 31,
-    },
-  ];
   const data_3 = [
     { name: "Heinous", value: 8918 },
     { name: "Non-Heinous", value: 91082 },
@@ -40,10 +17,10 @@ export default function Chart() {
   return (
     <>
       <div className="bg-gray-950 w-full h-full mt-2 rounded-lg p-2 grid sm:grid-cols-12 gap-2">
-        {data.length > 0 ? (
+        {Object.keys(data).length > 0 ? (
           <>
             <ChartContainer>
-              <Linechart records={data} />
+              <Linechart records={data.dataYearCase} />
             </ChartContainer>
 
             <ChartContainer>
@@ -51,21 +28,24 @@ export default function Chart() {
             </ChartContainer>
 
             <ChartContainer>
-              <Radarchart records={data_1} />
+              <Radarchart records={data.dataPSCases} />
             </ChartContainer>
 
             <ChartContainer>
-              <Barchart records={data} />
+              <Barchart records={data.dataYearCase} />
             </ChartContainer>
           </>
         ) : (
-          <h1 className="absolute top-2/4 left-2/4 text-3xl text-violet-700">
+          <div className="absolute top-2/4 left-2/4 ">
             {error ? (
-              <span className="text-red-600">Fetch Failed !</span>
+              <span className="text-3xl text-red-600">Fetch Failed !</span>
             ) : (
-              "Loading...."
+              <div
+                className="inline-block sm:h-16 sm:w-16 h-8 w-8 animate-spin rounded-full border-4 border-solid border-violet-500 border-e-transparent align-[-0.125em] text-primary motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                role="status"
+              ></div>
             )}
-          </h1>
+          </div>
         )}
       </div>
     </>

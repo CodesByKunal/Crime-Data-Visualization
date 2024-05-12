@@ -20,7 +20,7 @@ export default function Radarchart({ records, height, width }) {
       >
         <PolarGrid />
         <PolarAngleAxis dataKey="policeStation" />
-        <PolarRadiusAxis type="number" />
+        {/* <PolarRadiusAxis type="number" angle={90}/> */}
         <Radar
           name="Case Count"
           dataKey="Case"
